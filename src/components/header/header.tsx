@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import { UserInfo } from "./components"
 
 export const Header = () => {
     return (
@@ -8,6 +9,7 @@ export const Header = () => {
                 <NavLink to='/category/characters'>Characters</NavLink>
                 <NavLink to='/category/locations'>Locations</NavLink>
                 <NavLink to='/category/episodes'>Episodes</NavLink>
+                <UserInfo />
             </nav>
         </header>
     )
