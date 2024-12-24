@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
 import { Character, Episode, Location } from "./components"
+import ErrorBoundary from "../../components/ErrorBoundary/errorBoundary"
 
 export const ElementPage = () => {
     const location = useLocation()
@@ -11,14 +12,26 @@ export const ElementPage = () => {
     }
 
     if(location.pathname.includes('characters')) {
-        return <Character setIsLoading={setIsLoading} />
+        return (
+            <ErrorBoundary>
+                <Character setIsLoading={setIsLoading} />
+            </ErrorBoundary>
+        )
     }
 
     if(location.pathname.includes('locations')) {
-        return <Location setIsLoading={setIsLoading} />
+        return (
+            <ErrorBoundary>
+                <Location setIsLoading={setIsLoading} />
+            </ErrorBoundary>
+        )
     }
 
     if(location.pathname.includes('episodes')) {
-        return <Episode setIsLoading={setIsLoading} />
+        return (
+            <ErrorBoundary>
+                <Episode setIsLoading={setIsLoading} />
+            </ErrorBoundary>
+        )
     }
 }

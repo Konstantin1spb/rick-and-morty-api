@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, Suspense, useContext, useState } from "react"
 
 interface IContextValue {
     user: string | null,
@@ -35,7 +35,9 @@ export const AuthProvider = ({children}) => {
 
     return(
         <AuthContext.Provider value={value}>
-            {children}
+            <Suspense fallback={<div>Loading...</div>}>
+                {children}
+            </Suspense>
         </AuthContext.Provider>
     )
 }
