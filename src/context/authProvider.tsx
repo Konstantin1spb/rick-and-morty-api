@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material"
 import { createContext, Suspense, useContext, useState } from "react"
 
 interface IContextValue {
@@ -35,7 +36,7 @@ export const AuthProvider = ({children}) => {
 
     return(
         <AuthContext.Provider value={value}>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<CircularProgress />}>
                 {children}
             </Suspense>
         </AuthContext.Provider>
