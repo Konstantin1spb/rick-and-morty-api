@@ -2,13 +2,14 @@ import { useState } from "react"
 import { useLocation } from "react-router-dom"
 import { Character, Episode, Location } from "./components"
 import ErrorBoundary from "../../components/ErrorBoundary/errorBoundary"
+import { CircularProgress } from "@mui/material"
 
 export const ElementPage = () => {
     const location = useLocation()
     const [isLoading, setIsLoading] = useState(false)
 
     if(isLoading) {
-        return <div>Loading...</div>
+        return <CircularProgress />
     }
 
     if(location.pathname.includes('characters')) {

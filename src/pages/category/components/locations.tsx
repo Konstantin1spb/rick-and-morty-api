@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { fetchData } from "../../../utils"
 import { useUpdatePageNumber } from "../../../hooks"
+import { CircularProgress } from "@mui/material"
 
 interface ILocation {
     id: string,
@@ -54,7 +55,7 @@ export const Locations = () => {
                     )
                 }
             })}
-            {isLoading && <div>Loading...</div>}
+            {isLoading && <CircularProgress />}
         </main>
     )
 }

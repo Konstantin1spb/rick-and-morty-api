@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { fetchData } from "../../../utils"
 import { useEffect, useState } from "react"
 import { useUpdatePageNumber } from "../../../hooks"
+import { CircularProgress } from "@mui/material"
 
 interface ICharacter {
     id: string,
@@ -58,7 +59,7 @@ export const Characters = () => {
                     )
                 }
             })}
-            {isLoading && <div>Loading...</div>}
+            {isLoading && <CircularProgress />}
         </main>
     )
 }
