@@ -1,9 +1,29 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import { Header } from './components'
-import { CategoryPage, ElementPage, LoginPage, MainPage, NotFoundPage } from './pages'
 import { AuthProvider } from './context'
 import { PrivateRoute } from './components/privateRoute/privateRoute'
+import { lazy } from 'react'
+
+const MainPage = lazy(() => import('./pages/main/main').then(module => ({
+  default: module.MainPage
+})))
+
+const CategoryPage = lazy(() => import('./pages/category/category').then(module => ({
+  default: module.CategoryPage
+})))
+
+const ElementPage = lazy(() => import('./pages/element/element').then(module => ({
+  default: module.ElementPage
+})))
+
+const LoginPage = lazy(() => import('./pages/login/login').then(module => ({
+  default: module.LoginPage
+})))
+
+const NotFoundPage = lazy(() => import('./pages/notFound/notFound').then(module => ({
+  default: module.NotFoundPage
+})))
 
 function App() {
   return (
